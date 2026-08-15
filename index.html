@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Koofi Store — curated online deals and useful products.">
+  <title>Koofi Store | Smart Online Deals</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Koofi Store home">
+        <span class="brand-mark">K</span>
+        <span>Koofi <b>Store</b></span>
+      </a>
+      <nav class="desktop-nav">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#categories">Categories</a>
+        <a href="#about">About</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#home">Home</a><a href="#products">Products</a>
+      <a href="#categories">Categories</a><a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">KOOfI STORE • SMART SHOPPING</span>
+          <h1>Find useful products without the hassle.</h1>
+          <p class="hero-text">Koofi Store curates interesting tech, home, lifestyle and everyday products from major online marketplaces.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#products">Explore products</a>
+            <a class="btn secondary" href="#about">How it works</a>
+          </div>
+          <div class="trust-row">
+            <span>✓ Curated products</span>
+            <span>✓ Easy to compare</span>
+            <span>✓ Updated deals</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-orb">🛍️</div>
+          <p class="mini-label">FEATURED CATEGORY</p>
+          <h3>Tech & Mobile</h3>
+          <p>Accessories and useful gadgets selected for everyday use.</p>
+          <a href="#products" class="text-link">See picks →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="categories">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">BROWSE</span><h2>Shop by category</h2></div>
+          <p>Start with a category and discover products worth checking out.</p>
+        </div>
+        <div class="category-grid">
+          <button class="category-card" data-filter="Tech"><span>📱</span><strong>Tech & Mobile</strong><small>Gadgets & accessories</small></button>
+          <button class="category-card" data-filter="Home"><span>🏠</span><strong>Home</strong><small>Useful home products</small></button>
+          <button class="category-card" data-filter="Lifestyle"><span>✨</span><strong>Lifestyle</strong><small>Everyday essentials</small></button>
+          <button class="category-card" data-filter="Gaming"><span>🎮</span><strong>Gaming</strong><small>Gaming accessories</small></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products-section" id="products">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">CURATED PICKS</span><h2>Featured products</h2></div>
+          <div class="controls">
+            <input id="search" type="search" placeholder="Search products..." aria-label="Search products">
+            <select id="filter" aria-label="Filter products">
+              <option value="All">All</option><option value="Tech">Tech</option>
+              <option value="Home">Home</option><option value="Lifestyle">Lifestyle</option><option value="Gaming">Gaming</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+          <article class="product" data-category="Tech" data-name="Wireless Car Charger">
+            <div class="product-img tech">🚗⚡</div><div class="product-body">
+              <span class="tag">Tech</span><h3>Wireless Car Charger</h3>
+              <p>Convenient phone charging for your daily drive.</p>
+              <div class="product-bottom"><strong>View deal</strong><a class="deal" href="YOUR_AFFILIATE_LINK_1" target="_blank" rel="nofollow sponsored noopener">Shop →</a></div>
+            </div>
+          </article>
+          <article class="product" data-category="Tech" data-name="Magnetic Phone Stand">
+            <div class="product-img blue">📱🧲</div><div class="product-body">
+              <span class="tag">Tech</span><h3>Magnetic Phone Stand</h3>
+              <p>A compact stand for desks, videos and calls.</p>
+              <div class="product-bottom"><strong>View deal</strong><a class="deal" href="YOUR_AFFILIATE_LINK_2" target="_blank" rel="nofollow sponsored noopener">Shop →</a></div>
+            </div>
+          </article>
+          <article class="product" data-category="Home" data-name="Mini LED Night Light">
+            <div class="product-img warm">💡🏠</div><div class="product-body">
+              <span class="tag">Home</span><h3>Mini LED Night Light</h3>
+              <p>Simple lighting for bedrooms, hallways and desks.</p>
+              <div class="product-bottom"><strong>View deal</strong><a class="deal" href="YOUR_AFFILIATE_LINK_3" target="_blank" rel="nofollow sponsored noopener">Shop →</a></div>
+            </div>
+          </article>
+          <article class="product" data-category="Lifestyle" data-name="Travel Organizer">
+            <div class="product-img green">✈️🧳</div><div class="product-body">
+              <span class="tag">Lifestyle</span><h3>Travel Organizer</h3>
+              <p>Keep cables, documents and small essentials organized.</p>
+              <div class="product-bottom"><strong>View deal</strong><a class="deal" href="YOUR_AFFILIATE_LINK_4" target="_blank" rel="nofollow sponsored noopener">Shop →</a></div>
+            </div>
+          </article>
+          <article class="product" data-category="Gaming" data-name="Gaming Phone Cooler">
+            <div class="product-img purple">🎮❄️</div><div class="product-body">
+              <span class="tag">Gaming</span><h3>Gaming Phone Cooler</h3>
+              <p>Cooling accessory for longer mobile gaming sessions.</p>
+              <div class="product-bottom"><strong>View deal</strong><a class="deal" href="YOUR_AFFILIATE_LINK_5" target="_blank" rel="nofollow sponsored noopener">Shop →</a></div>
+            </div>
+          </article>
+          <article class="product" data-category="Home" data-name="Foldable Storage Box">
+            <div class="product-img orange">📦✨</div><div class="product-body">
+              <span class="tag">Home</span><h3>Foldable Storage Box</h3>
+              <p>Practical storage for clothes and everyday items.</p>
+              <div class="product-bottom"><strong>View deal</strong><a class="deal" href="YOUR_AFFILIATE_LINK_6" target="_blank" rel="nofollow sponsored noopener">Shop →</a></div>
+            </div>
+          </article>
+        </div>
+        <p class="empty" id="empty">No products found.</p>
+      </div>
+    </section>
+
+    <section class="how section">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow">HOW IT WORKS</span><h2>Simple, transparent shopping</h2></div></div>
+        <div class="steps">
+          <div><b>01</b><h3>Discover</h3><p>Browse products curated by Koofi Store.</p></div>
+          <div><b>02</b><h3>Compare</h3><p>Check the product details and marketplace offer.</p></div>
+          <div><b>03</b><h3>Shop</h3><p>Click “Shop” to visit the seller and complete your purchase there.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="container about-box">
+        <div><span class="eyebrow">ABOUT KOOFI STORE</span><h2>Products worth discovering.</h2></div>
+        <div>
+          <p>Koofi Store is an independent product-discovery website. Product links may take you to third-party marketplaces. Availability, shipping, price and return policies are determined by the seller.</p>
+          <p class="note">Some links may be affiliate links. If you purchase through an affiliate link, Koofi Store may receive a commission at no additional cost to you.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><a class="brand" href="#home"><span class="brand-mark">K</span><span>Koofi <b>Store</b></span></a><p>Smart online product discovery.</p></div>
+      <div><strong>Quick links</strong><a href="#products">Products</a><a href="#categories">Categories</a><a href="#about">About</a></div>
+      <div><strong>Legal</strong><a href="#about">Affiliate disclosure</a><a href="#about">Terms</a><a href="#about">Privacy</a></div>
+    </div>
+    <div class="copyright">© 2026 Koofi Store. All rights reserved.</div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
