@@ -1,168 +1,1117 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Koofi Store — curated online deals and useful products.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Koofi Store | Smart Online Deals</title>
-  <link rel="stylesheet" href="styles.css"> 
-  <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://abdifataaxadam1-eng.github.io/Koofi-store/">
+
+  <meta name="description"
+        content="Koofi Store - curated online deals and useful products.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f5f6fa;
+      color: #222;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* HEADER */
+    header {
+      background: #111827;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .brand span {
+      color: #60a5fa;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #fff;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: 0;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 70px 0;
+      background: linear-gradient(135deg, #111827, #1e3a8a);
+      color: white;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: #93c5fd;
+      font-weight: bold;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #dbeafe;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+
+    .primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .primary:hover {
+      background: #1d4ed8;
+    }
+
+    .secondary {
+      background: white;
+      color: #111827;
+    }
+
+    .hero-card {
+      background: white;
+      color: #222;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.2);
+    }
+
+    .hero-card h3 {
+      margin: 12px 0;
+    }
+
+    .hero-icon {
+      font-size: 55px;
+    }
+
+    /* TRUST */
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .trust div {
+      background: rgba(255,255,255,.1);
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 65px 0;
+    }
+
+    .section-head {
+      margin-bottom: 30px;
+    }
+
+    .section-head span {
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .section-head h2 {
+      font-size: 32px;
+      margin-top: 7px;
+    }
+
+    .section-head p {
+      margin-top: 10px;
+      color: #666;
+    }
+
+    /* CATEGORIES */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .category-card {
+      border: none;
+      background: white;
+      border-radius: 15px;
+      padding: 25px 15px;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(0,0,0,.07);
+      transition: .2s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.12);
+    }
+
+    .category-card .icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .category-card strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .category-card small {
+      color: #777;
+    }
+
+    /* SEARCH */
+    .search-box {
+      margin-bottom: 30px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: #2563eb;
+    }
+
+    /* PRODUCTS */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0,0,0,.07);
+      transition: .2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      background: #eee;
+    }
+
+    .product-content {
+      padding: 18px;
+    }
+
+    .product-category {
+      color: #2563eb;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .product-content h3 {
+      margin: 8px 0;
+      font-size: 18px;
+    }
+
+    .product-content p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .product-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: #2563eb;
+      color: white;
+      padding: 11px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .product-btn:hover {
+      background: #1d4ed8;
+    }
+
+    /* ABOUT */
+    .about {
+      background: white;
+    }
+
+    .about-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .about-box h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .about-box p {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .about-list div {
+      padding: 15px;
+      background: #f5f6fa;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111827;
+      color: white;
+      padding: 35px 0;
+      text-align: center;
+    }
+
+    footer p {
+      color: #cbd5e1;
+      margin-top: 8px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #111827;
+        padding: 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-grid,
+      .about-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 50px 0;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section {
+        padding: 45px 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
+
+  <!-- HEADER -->
+  <header>
     <div class="container nav">
-      <a class="brand" href="#home" aria-label="Koofi Store home">
-        <span class="brand-mark">K</span>
-        <span>Koofi <b>Store</b></span>
+
+      <a href="#home" class="brand">
+        <span>Koofi</span> Store
       </a>
-      <nav class="desktop-nav">
+
+      <nav id="navMenu">
         <a href="#home">Home</a>
-        <a href="#products">Products</a>
         <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
         <a href="#about">About</a>
       </nav>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+      <button class="menu-btn" id="menuBtn">
+        ☰
+      </button>
+
     </div>
-    <nav class="mobile-nav" id="mobileNav">
-      <a href="#home">Home</a><a href="#products">Products</a>
-      <a href="#categories">Categories</a><a href="#about">About</a>
-    </nav>
   </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">KOOfI STORE • SMART SHOPPING</span>
-          <h1>Find useful products without the hassle.</h1>
-          <p class="hero-text">Koofi Store curates interesting tech, home, lifestyle and everyday products from major online marketplaces.</p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#products">Explore products</a>
-            <a class="btn secondary" href="#about">How it works</a>
-          </div>
-          <div class="trust-row">
-            <span>✓ Curated products</span>
-            <span>✓ Easy to compare</span>
-            <span>✓ Updated deals</span>
-          </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="container hero-grid">
+
+      <div>
+
+        <div class="eyebrow">
+          KOOFI STORE • SMART SHOPPING
         </div>
-        <div class="hero-card">
-          <div class="hero-orb">🛍️</div>
-          <p class="mini-label">FEATURED CATEGORY</p>
-          <h3>Tech & Mobile</h3>
-          <p>Accessories and useful gadgets selected for everyday use.</p>
-          <a href="#products" class="text-link">See picks →</a>
+
+        <h1>
+          Find useful products without the hassle.
+        </h1>
+
+        <p>
+          Koofi Store curates interesting tech, home,
+          lifestyle and everyday products from major online stores.
+        </p>
+
+        <div class="hero-actions">
+
+          <a href="#products" class="btn primary">
+            Explore Products
+          </a>
+
+          <a href="#about" class="btn secondary">
+            How it works
+          </a>
+
         </div>
+
+        <div class="trust">
+
+          <div>✓ Curated products</div>
+          <div>✓ Easy to compare</div>
+          <div>✓ Updated deals</div>
+
+        </div>
+
       </div>
-    </section>
 
-    <section class="section" id="categories">
-      <div class="container">
-        <div class="section-head">
-          <div><span class="eyebrow">BROWSE</span><h2>Shop by category</h2></div>
-          <p>Start with a category and discover products worth checking out.</p>
-        </div>
-        <div class="category-grid">
-          <button class="category-card" data-filter="Tech"><span>📱</span><strong>Tech & Mobile</strong><small>Gadgets & accessories</small></button>
-          <button class="category-card" data-filter="Home"><span>🏠</span><strong>Home</strong><small>Useful home products</small></button>
-          <button class="category-card" data-filter="Lifestyle"><span>✨</span><strong>Lifestyle</strong><small>Everyday essentials</small></button>
-          <button class="category-card" data-filter="Gaming"><span>🎮</span><strong>Gaming</strong><small>Gaming accessories</small></button>
-        </div>
+
+      <div class="hero-card">
+
+        <div class="hero-icon">🛍️</div>
+
+        <h3>Smart Shopping</h3>
+
+        <p>
+          Discover useful products and compare
+          interesting deals in one simple place.
+        </p>
+
+        <br>
+
+        <strong>
+          🔥 New products added regularly
+        </strong>
+
       </div>
-    </section>
 
-    <section class="section products-section" id="products">
-      <div class="container">
-        <div class="section-head">
-          <div><span class="eyebrow">CURATED PICKS</span><h2>Featured products</h2></div>
-          <div class="controls">
-            <input id="search" type="search" placeholder="Search products..." aria-label="Search products">
-            <select id="filter" aria-label="Filter products">
-              <option value="All">All</option><option value="Tech">Tech</option>
-              <option value="Home">Home</option><option value="Lifestyle">Lifestyle</option><option value="Gaming">Gaming</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="product-grid" id="productGrid">
-          <article class="product" data-category="Tech" data-name="Wireless Car Charger">
-            <div class="product-img tech">🚗⚡</div><div class="product-body">
-              <span class="tag">Tech</span><h3>Wireless Car Charger</h3>
-              <p>Convenient phone charging for your daily drive.</p>
-              <div class="product-bottom"><strong>View deal</strong><a class="deal" href="YOUR_AFFILIATE_LINK_1" target="_blank" rel="nofollow sponsored noopener">Shop →</a></div>
-            </div>
-          </article>
-          <article class="product" data-category="Tech" data-name="Magnetic Phone Stand">
-            <div class="product-img blue">📱🧲</div><div class="product-body">
-              <span class="tag">Tech</span><h3>Magnetic Phone Stand</h3>
-              <p>A compact stand for desks, videos and calls.</p>
-              <div class="product-bottom"><strong>View deal</strong><a class="deal" href="YOUR_AFFILIATE_LINK_2" target="_blank" rel="nofollow sponsored noopener">Shop →</a></div>
-            </div>
-          </article>
-          <article class="product" data-category="Home" data-name="Mini LED Night Light">
-            <div class="product-img warm">💡🏠</div><div class="product-body">
-              <span class="tag">Home</span><h3>Mini LED Night Light</h3>
-              <p>Simple lighting for bedrooms, hallways and desks.</p>
-              <div class="product-bottom"><strong>View deal</strong><a class="deal" href="YOUR_AFFILIATE_LINK_3" target="_blank" rel="nofollow sponsored noopener">Shop →</a></div>
-            </div>
-          </article>
-          <article class="product" data-category="Lifestyle" data-name="Travel Organizer">
-            <div class="product-img green">✈️🧳</div><div class="product-body">
-              <span class="tag">Lifestyle</span><h3>Travel Organizer</h3>
-              <p>Keep cables, documents and small essentials organized.</p>
-              <div class="product-bottom"><strong>View deal</strong><a class="deal" href="YOUR_AFFILIATE_LINK_4" target="_blank" rel="nofollow sponsored noopener">Shop →</a></div>
-            </div>
-          </article>
-          <article class="product" data-category="Gaming" data-name="Gaming Phone Cooler">
-            <div class="product-img purple">🎮❄️</div><div class="product-body">
-              <span class="tag">Gaming</span><h3>Gaming Phone Cooler</h3>
-              <p>Cooling accessory for longer mobile gaming sessions.</p>
-              <div class="product-bottom"><strong>View deal</strong><a class="deal" href="YOUR_AFFILIATE_LINK_5" target="_blank" rel="nofollow sponsored noopener">Shop →</a></div>
-            </div>
-          </article>
-          <article class="product" data-category="Home" data-name="Foldable Storage Box">
-            <div class="product-img orange">📦✨</div><div class="product-body">
-              <span class="tag">Home</span><h3>Foldable Storage Box</h3>
-              <p>Practical storage for clothes and everyday items.</p>
-              <div class="product-bottom"><strong>View deal</strong><a class="deal" href="YOUR_AFFILIATE_LINK_6" target="_blank" rel="nofollow sponsored noopener">Shop →</a></div>
-            </div>
-          </article>
-        </div>
-        <p class="empty" id="empty">No products found.</p>
-      </div>
-    </section>
-
-    <section class="how section">
-      <div class="container">
-        <div class="section-head"><div><span class="eyebrow">HOW IT WORKS</span><h2>Simple, transparent shopping</h2></div></div>
-        <div class="steps">
-          <div><b>01</b><h3>Discover</h3><p>Browse products curated by Koofi Store.</p></div>
-          <div><b>02</b><h3>Compare</h3><p>Check the product details and marketplace offer.</p></div>
-          <div><b>03</b><h3>Shop</h3><p>Click “Shop” to visit the seller and complete your purchase there.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about section" id="about">
-      <div class="container about-box">
-        <div><span class="eyebrow">ABOUT KOOFI STORE</span><h2>Products worth discovering.</h2></div>
-        <div>
-          <p>Koofi Store is an independent product-discovery website. Product links may take you to third-party marketplaces. Availability, shipping, price and return policies are determined by the seller.</p>
-          <p class="note">Some links may be affiliate links. If you purchase through an affiliate link, Koofi Store may receive a commission at no additional cost to you.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <div><a class="brand" href="#home"><span class="brand-mark">K</span><span>Koofi <b>Store</b></span></a><p>Smart online product discovery.</p></div>
-      <div><strong>Quick links</strong><a href="#products">Products</a><a href="#categories">Categories</a><a href="#about">About</a></div>
-      <div><strong>Legal</strong><a href="#about">Affiliate disclosure</a><a href="#about">Terms</a><a href="#about">Privacy</a></div>
     </div>
-    <div class="copyright">© 2026 Koofi Store. All rights reserved.</div>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+  <section class="section" id="categories">
+
+    <div class="container">
+
+      <div class="section-head">
+
+        <span>BROWSE</span>
+
+        <h2>
+          Shop by category
+        </h2>
+
+        <p>
+          Choose a category and discover products worth checking out.
+        </p>
+
+      </div>
+
+
+      <div class="category-grid">
+
+        <button class="category-card" data-filter="Tech">
+
+          <div class="icon">📱</div>
+
+          <strong>Tech & Mobile</strong>
+
+          <small>
+            Phones, gadgets & accessories
+          </small>
+
+        </button>
+
+
+        <button class="category-card" data-filter="Home">
+
+          <div class="icon">🏠</div>
+
+          <strong>Home</strong>
+
+          <small>
+            Useful home products
+          </small>
+
+        </button>
+
+
+        <button class="category-card" data-filter="Lifestyle">
+
+          <div class="icon">✨</div>
+
+          <strong>Lifestyle</strong>
+
+          <small>
+            Everyday useful items
+          </small>
+
+        </button>
+
+
+        <button class="category-card" data-filter="Gaming">
+
+          <div class="icon">🎮</div>
+
+          <strong>Gaming</strong>
+
+          <small>
+            Gaming accessories
+          </small>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUCTS -->
+  <section class="section" id="products">
+
+    <div class="container">
+
+      <div class="section-head">
+
+        <span>CURATED PICKS</span>
+
+        <h2>
+          Featured Products
+        </h2>
+
+        <p>
+          Browse our selection of useful products.
+        </p>
+
+      </div>
+
+
+      <div class="search-box">
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search products..."
+        >
+
+      </div>
+
+
+      <div class="products" id="productGrid">
+
+
+        <!-- PRODUCT 1 -->
+        <div class="product-card" data-category="Tech">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1605781235037-7a6b6e0a1b4a?auto=format&fit=crop&w=800&q=80"
+            alt="Magnetic Car Phone Charger"
+          >
+
+          <div class="product-content">
+
+            <div class="product-category">
+              Tech
+            </div>
+
+            <h3>
+              Magnetic Car Phone Charger
+            </h3>
+
+            <p>
+              Convenient magnetic charging accessory
+              for your car.
+            </p>
+
+            <div class="price">
+              $19.99
+            </div>
+
+            <a href="#" class="product-btn">
+              View Product
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+        <div class="product-card" data-category="Tech">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80"
+            alt="Wireless Headphones"
+          >
+
+          <div class="product-content">
+
+            <div class="product-category">
+              Tech
+            </div>
+
+            <h3>
+              Wireless Headphones
+            </h3>
+
+            <p>
+              Comfortable wireless headphones
+              for music and everyday use.
+            </p>
+
+            <div class="price">
+              $29.99
+            </div>
+
+            <a href="#" class="product-btn">
+              View Product
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+        <div class="product-card" data-category="Home">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80"
+            alt="Smart Home Lamp"
+          >
+
+          <div class="product-content">
+
+            <div class="product-category">
+              Home
+            </div>
+
+            <h3>
+              Smart Home Lamp
+            </h3>
+
+            <p>
+              Modern lighting for your bedroom,
+              office or living room.
+            </p>
+
+            <div class="price">
+              $24.99
+            </div>
+
+            <a href="#" class="product-btn">
+              View Product
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+        <div class="product-card" data-category="Gaming">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=800&q=80"
+            alt="Gaming Controller"
+          >
+
+          <div class="product-content">
+
+            <div class="product-category">
+              Gaming
+            </div>
+
+            <h3>
+              Gaming Controller
+            </h3>
+
+            <p>
+              Comfortable controller for
+              gaming sessions.
+            </p>
+
+            <div class="price">
+              $39.99
+            </div>
+
+            <a href="#" class="product-btn">
+              View Product
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+        <div class="product-card" data-category="Lifestyle">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+            alt="Smart Watch"
+          >
+
+          <div class="product-content">
+
+            <div class="product-category">
+              Lifestyle
+            </div>
+
+            <h3>
+              Smart Watch
+            </h3>
+
+            <p>
+              Stylish smartwatch for everyday
+              activities and notifications.
+            </p>
+
+            <div class="price">
+              $49.99
+            </div>
+
+            <a href="#" class="product-btn">
+              View Product
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+        <div class="product-card" data-category="Home">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80"
+            alt="Home Organizer"
+          >
+
+          <div class="product-content">
+
+            <div class="product-category">
+              Home
+            </div>
+
+            <h3>
+              Home Organizer
+            </h3>
+
+            <p>
+              Keep your everyday items organized
+              and easy to find.
+            </p>
+
+            <div class="price">
+              $14.99
+            </div>
+
+            <a href="#" class="product-btn">
+              View Product
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 7 -->
+        <div class="product-card" data-category="Tech">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=800&q=80"
+            alt="Bluetooth Speaker"
+          >
+
+          <div class="product-content">
+
+            <div class="product-category">
+              Tech
+            </div>
+
+            <h3>
+              Bluetooth Speaker
+            </h3>
+
+            <p>
+              Portable speaker for music at home
+              or outdoors.
+            </p>
+
+            <div class="price">
+              $34.99
+            </div>
+
+            <a href="#" class="product-btn">
+              View Product
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 8 -->
+        <div class="product-card" data-category="Lifestyle">
+
+          <img
+            class="product-image"
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80"
+            alt="Everyday Sneakers"
+          >
+
+          <div class="product-content">
+
+            <div class="product-category">
+              Lifestyle
+            </div>
+
+            <h3>
+              Everyday Sneakers
+            </h3>
+
+            <p>
+              Comfortable shoes for everyday
+              activities.
+            </p>
+
+            <div class="price">
+              $44.99
+            </div>
+
+            <a href="#" class="product-btn">
+              View Product
+            </a>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+
+    <div class="container about-box">
+
+      <div>
+
+        <div class="section-head">
+
+          <span>ABOUT KOOFI</span>
+
+          <h2>
+            Simple shopping. Useful products.
+          </h2>
+
+        </div>
+
+        <p>
+          Koofi Store helps shoppers discover useful
+          products from different categories without
+          making online shopping complicated.
+        </p>
+
+        <p>
+          Browse products, search for what you need,
+          and choose the products that interest you.
+        </p>
+
+      </div>
+
+
+      <div class="about-list">
+
+        <div>✓ Easy product discovery</div>
+
+        <div>✓ Multiple categories</div>
+
+        <div>✓ Mobile-friendly design</div>
+
+        <div>✓ Regularly updated products</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container">
+
+      <h3>Koofi Store</h3>
+
+      <p>
+        Smart shopping made simple.
+      </p>
+
+      <p>
+        © 2026 Koofi Store. All rights reserved.
+      </p>
+
+    </div>
+
   </footer>
-  <script src="script.js"></script>
+
+
+  <script>
+
+    /* MOBILE MENU */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navMenu = document.getElementById("navMenu");
+
+    menuBtn.addEventListener("click", function () {
+      navMenu.classList.toggle("active");
+    });
+
+
+    /* SEARCH */
+
+    const searchInput = document.getElementById("searchInput");
+    const products = document.querySelectorAll(".product-card");
+
+    searchInput.addEventListener("input", function () {
+
+      const search = this.value.toLowerCase();
+
+      products.forEach(function (product) {
+
+        const text = product.innerText.toLowerCase();
+
+        if (text.includes(search)) {
+          product.style.display = "";
+        } else {
+          product.style.display = "none";
+        }
+
+      });
+
+    });
+
+
+    /* CATEGORY FILTER */
+
+    const categoryButtons =
+      document.querySelectorAll(".category-card");
+
+    categoryButtons.forEach(function (button) {
+
+      button.addEventListener("click", function () {
+
+        const category = this.dataset.filter;
+
+        products.forEach(function (product) {
+
+          if (product.dataset.category === category) {
+            product.style.display = "";
+          } else {
+            product.style.display = "none";
+          }
+
+        });
+
+        document.getElementById("products")
+          .scrollIntoView({ behavior: "smooth" });
+
+      });
+
+    });
+
+
+    /* VIEW PRODUCT BUTTON */
+
+    const productButtons =
+      document.querySelectorAll(".product-btn");
+
+    productButtons.forEach(function (button) {
+
+      button.addEventListener("click", function (event) {
+
+        if (button.getAttribute("href") === "#") {
+          event.preventDefault();
+
+          alert(
+            "Product link will be added soon."
+          );
+        }
+
+      });
+
+    });
+
+  </script>
+
 </body>
-</html> 
+</html>
