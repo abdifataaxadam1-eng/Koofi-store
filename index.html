@@ -1110,7 +1110,49 @@
       });
 
     });
+// ===== ADMIN PRODUCTS SYNC =====
+const adminProducts = JSON.parse(
+    localStorage.getItem("koofiProducts") || "[]"
+);
 
+const storeProductsContainer = document.getElementById("products");
+
+if (storeProductsContainer && adminProducts.length > 0) {
+
+    adminProducts.forEach(function(product) {
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+                onerror="this.src='https://via.placeholder.com/500x300?text=No+Image'"
+            >
+
+            <div class="card-content">
+                <h2>${product.name}</h2>
+
+                <p>${product.description}</p>
+
+                <div class="price">
+                    ${product.price}
+                </div>
+
+                <a
+                    class="product-btn"
+                    href="${product.link}"
+                    target="_blank"
+                >
+                    View Product
+                </a>
+            </div>
+        `;
+
+        storeProductsContainer.appendChild(card);
+    });
+}
   </script>
 
 </body>
