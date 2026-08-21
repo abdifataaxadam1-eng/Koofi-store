@@ -1110,49 +1110,96 @@
       });
 
     });
-// ===== ADMIN PRODUCTS SYNC =====
-const adminProducts = JSON.parse(
-    localStorage.getItem("koofiProducts") || "[]"
-);
+    <!-- ===== SUPABASE PRODUCTS ===== -->
 
-const storeProductsContainer = document.getElementById("products");
+<script>
+const SUPABASE_URL =
+  "https://kiaaqgnzkhbqwrveifmd.supabase.co";
 
-if (storeProductsContainer && adminProducts.length > 0) {
+const SUPABASE_ANON_KEY =
+  "sb_publishable_2AjSIQ-fsBZmKPNAvnD2iA_8CDZM_pp";
 
-    adminProducts.forEach(function(product) {
 
-        const card = document.createElement("div");
-        card.className = "card";
+async function loadProducts() {
 
-        card.innerHTML = `
-            <img
-                src="${product.image}"
-                alt="${product.name}"
-                onerror="this.src='https://via.placeholder.com/500x300?text=No+Image'"
-            >
+  const container =
+    document.getElementById("products");
 
-            <div class="card-content">
-                <h2>${product.name}</h2>
+  if (!container) return;
 
-                <p>${product.description}</p>
+  try {
 
-                <div class="price">
-                    ${product.price}
-                </div>
+    const response = await fetch(
+      SUPABASE_URL + "/rest/v1/products?select=*",
+      {
+        headers: {
+          "apikey": SUPABASE_ANON_KEY,
+          "Authorization":
+            "Bearer " + SUPABASE_ANON_KEY
+        }
+      }
+    );
 
-                <a
-                    class="product-btn"
-                    href="${product.link}"
-                    target="_blank"
-                >
-                    View Product
-                </a>
-            </div>
-        `;
+    if (!response.ok) {
+      throw new Error("Products lama soo qaadin");
+    }
 
-        storeProductsContainer.appendChild(card);
+    const products = await response.json();
+
+    products.forEach(function(product) {
+
+      const card = document.createElement("div");
+
+      card.className = "product-card";
+
+      card.innerHTML = `
+        <img
+          src="${product.image || ""}"
+          alt="${product.name || "Product"}"
+          onerror="this.style.display='none'"
+        >
+
+        <div class="product-content">
+
+          <h3>
+            ${product.name || ""}
+          </h3>
+
+          <p>
+            ${product.description || ""}
+          </p>
+
+          <div class="price">
+            ${product.price || ""}
+          </div>
+
+          <a
+            class="product-btn"
+            href="${product.link || "#"}"
+            target="_blank"
+          >
+            View Product
+          </a>
+
+        </div>
+      `;
+
+      container.appendChild(card);
+
     });
+
+  } catch (error) {
+
+    console.error("Supabase error:", error);
+
+  }
+
 }
+
+
+loadProducts();
+
+</script>
   </script>
 
 </body>
